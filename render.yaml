@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: journal-app
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false   # paste from Neon dashboard in Render UI
+      - key: AUTH_PASSWORD
+        sync: false   # your chosen password
